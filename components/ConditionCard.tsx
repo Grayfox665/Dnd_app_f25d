@@ -2,14 +2,13 @@ import { ConditionCardProps } from "../types/condition";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function ConditionCard({ condition }: ConditionCardProps) {
+
+
   return (
     <View style={styles.cardcontainer}>
       <Text>{condition.name}</Text>
       <View>
-        {/* {condition.desc.map((desc) => (
-          <Text key={desc} /> 
-        ))} */}
-        <Text>{condition.desc}</Text>
+        <Text>{condition.desc.join('\n\n')}</Text>
       </View>
     </View>
   )
