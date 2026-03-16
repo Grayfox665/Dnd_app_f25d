@@ -17,14 +17,14 @@ export default function SpellPage() {
   }, []);
 
   const filtered = spells.filter(spell => {
-    const matchSearch = spell.name?.toLowerCase().includes(search.toLowerCase())
+    const matchSearch = spell.index?.toLowerCase().includes(search.toLowerCase())
 
-    const matchSchool = school === "all" || spell.school?.name === school
+    const matchSchool = school === "all" || spell.school?.index === school
 
     const matchLevel = level === "all" || spell.level === Number(level)
 
     return matchSearch && matchSchool && matchLevel
-  })
+  });
 
   console.log(school);
   console.log(level);
