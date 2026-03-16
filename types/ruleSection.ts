@@ -4,6 +4,10 @@ export interface RuleSectionListItem {
   url : string;
 }
 
+export interface RuleSectionCardProps {
+  rulesection : RuleSection;
+}
+
 export interface RuleSection {
   name: string;
   index: string;

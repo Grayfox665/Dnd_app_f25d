@@ -45,3 +45,8 @@ export interface Spell {
     index: string;
   }
 }
+
+export type SpellContextType = {
+  savedSpell: Spell[];
+  saveSpell: (spell : Spell) => void;
+};
