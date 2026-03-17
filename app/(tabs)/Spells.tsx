@@ -1,6 +1,6 @@
-import { StyleSheet, View, Text, ScrollView} from "react-native";
+import { StyleSheet, View, Text, FlatList} from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import SpellCard from "../../components/SpellCard";
 import SearchComponent from "../../components/SearchComponent";
 import { GetAllSpells } from "../../Api/SpellAPI";
@@ -16,18 +16,18 @@ export default function SpellPage() {
     GetAllSpells().then(setSpells);
   }, []);
 
-  const filtered = spells.filter(spell => {
-    const matchSearch = spell.index?.toLowerCase().includes(search.toLowerCase())
+  const filtered = useMemo(() => { 
+    return spells.filter(spell => {
+      const matchSearch = spell.index?.toLowerCase().includes(search.toLowerCase())
 
-    const matchSchool = school === "all" || spell.school?.index === school
+      const matchSchool = school === "all" || spell.school?.index === school
 
-    const matchLevel = level === "all" || spell.level === Number(level)
+      const matchLevel = level === "all" || spell.level === Number(level)
 
-    return matchSearch && matchSchool && matchLevel
-  });
+      return matchSearch && matchSchool && matchLevel
+    });
+  }, [spells, search, school, level]);
 
-  console.log(school);
-  console.log(level);
 
   return (
     <View style={styles.container}>
@@ -45,11 +45,11 @@ export default function SpellPage() {
       </View>
       </View>
       <StatusBar style="auto" />
-      <ScrollView>
-        {filtered.map((spell) => (
-          <SpellCard key={spell.index} spell={spell} />
-        ))}
-      </ScrollView>
+      <FlatList
+        data={filtered}
+        keyExtractor={(item) => item.index}
+        renderItem={({ item }) => <SpellCard spell={item} />}
+      />
     </View>
   )
 }

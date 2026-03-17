@@ -12,3 +12,9 @@ export interface Condition {
   name: string;
   desc: string[];
 }
+
+export type  ConditionIndexResponse = {
+  count: number;
+  results : ConditionListItem[];
+
+}

@@ -1,12 +1,32 @@
 import { SpellCardProps } from "../types/spell";
 import { StyleSheet, Text, View, Pressable } from "react-native";
+import { useEffect, useState } from "react";
+import { getSpellBookmarks, toggleSpellBookmark} from "../utils/spellBookmarks";
 
 export default function SpellCard({ spell }: SpellCardProps) {
+  const [bookmarkedSpell, setBookmarkedSpell] = useState<boolean>(false);
+
+  useEffect(() => {
+    const load = async () => {
+    const spellBookmarks = await getSpellBookmarks();
+    setBookmarkedSpell(spellBookmarks.includes(spell.index));
+    }
+  load();
+}, [spell.index]);
+
+const handleSpellBookmark = async () => {
+  const newState = await toggleSpellBookmark(spell.index);
+  setBookmarkedSpell(newState);
+};
+
+
   return (
     <View style={styles.cardcontainer}>
       <View>
         <Text style={styles.spellNameStyling}>{spell.name}</Text>
-        <Pressable></Pressable>
+        <Pressable onPress={handleSpellBookmark}>
+          <Text>{bookmarkedSpell ? "bookmarked" : "bookmark"}</Text>
+        </Pressable>
       </View>
       <View style={styles.spellLevelContainer}>
         <Text style={styles.italicStyling}>{spell.school.name} 

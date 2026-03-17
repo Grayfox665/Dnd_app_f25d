@@ -13,3 +13,8 @@ export interface RuleSection {
   index: string;
   desc: string;
 }
+
+export type RuleSectionIndexesResponse = {
+  count : number;
+  results: RuleSectionListItem[];
+}

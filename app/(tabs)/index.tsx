@@ -1,12 +1,43 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { useEffect, useState } from 'react';
+import { GetAllSpells } from '../../Api/SpellAPI';
+import { getSpellBookmarks } from '../../utils/spellBookmarks';
+import { Spell } from '../../types/spell';
+import SpellCard from '../../components/SpellCard';
 
 export default function App() {
+  const [spells, setSpells] = useState<Spell[]>([]);
+  const [bookmarkedSpell, setBookmarkedSpell] = useState<Spell[]>([]);
+
+  useEffect(() => {
+    const load = async () => {
+      const allSpells = await GetAllSpells();
+      const bookmarkedSpellsIds = await getSpellBookmarks();
+
+      const filtered = allSpells.filter((spell : Spell) => 
+        bookmarkedSpellsIds.includes(spell.index)
+      );
+
+      setSpells(allSpells);
+      setBookmarkedSpell(filtered);
+    };
+
+    load();
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <Text>test</Text>
+      <Text>Home page for the DnD assistant app!</Text>
       <StatusBar style="auto" />
+      <View>
+        <Text>Bookmarked spells: </Text>
+        <ScrollView>
+          {bookmarkedSpell.map((spell) => (
+            <SpellCard key={spell.index} spell={spell} />
+          ))}
+        </ScrollView>
+      </View>
     </View>
   );
 }
@@ -14,8 +45,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fce1c0',
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });
