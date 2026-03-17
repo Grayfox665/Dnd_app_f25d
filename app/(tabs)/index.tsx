@@ -7,7 +7,6 @@ import { Spell } from '../../types/spell';
 import SpellCard from '../../components/SpellCard';
 
 export default function App() {
-  const [spells, setSpells] = useState<Spell[]>([]);
   const [bookmarkedSpell, setBookmarkedSpell] = useState<Spell[]>([]);
 
   useEffect(() => {
@@ -19,7 +18,6 @@ export default function App() {
         bookmarkedSpellsIds.includes(spell.index)
       );
 
-      setSpells(allSpells);
       setBookmarkedSpell(filtered);
     };
 
