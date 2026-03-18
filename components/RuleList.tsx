@@ -1,4 +1,4 @@
-import { ScrollView} from "react-native";
+import { FlatList} from "react-native";
 import { useEffect, useState } from "react";
 import { RuleSection } from "../types/ruleSection";
 import RuleSectionCard from "./RuleSectionCard";
@@ -12,10 +12,10 @@ export default function RuleSectionList() {
   }, []);
 
   return(
-    <ScrollView>
-        {ruleSections.map((rulesection) => (
-          <RuleSectionCard key={rulesection.index} rulesection={rulesection} />
-        ))}
-    </ScrollView>
+    <FlatList
+    data={ruleSections}
+    keyExtractor={(item) => item.index}
+    renderItem={({ item }) => <RuleSectionCard rulesection={item} />}
+    />
   )
 }

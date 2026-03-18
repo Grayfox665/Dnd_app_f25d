@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { useState, useCallback } from 'react';
 import { GetAllSpells } from '../../Api/SpellAPI';
@@ -33,11 +33,11 @@ export default function App() {
       <StatusBar style="auto" />
       <View>
         <Text>Bookmarked spells: </Text>
-        <ScrollView>
-          {bookmarkedSpell.map((spell) => (
-            <SpellCard key={spell.index} spell={spell} />
-          ))}
-        </ScrollView>
+        <FlatList 
+        data={bookmarkedSpell}
+        keyExtractor={(item) => item.index}
+        renderItem={({ item }) => <SpellCard spell={item} />}
+        />
       </View>
     </View>
   );
