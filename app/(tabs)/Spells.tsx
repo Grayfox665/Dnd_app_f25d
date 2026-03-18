@@ -5,6 +5,7 @@ import SpellCard from "../../components/SpellCard";
 import SearchComponent from "../../components/SearchComponent";
 import { GetAllSpells } from "../../Api/SpellAPI";
 import { Spell } from "../../types/spell";
+import { filterSpells } from "../../utils/filterSpells";
 
 export default function SpellPage() {
   const [spells, setSpells] = useState<Spell[]>([]);
@@ -17,21 +18,12 @@ export default function SpellPage() {
   }, []);
 
   const filtered = useMemo(() => { 
-    return spells.filter(spell => {
-      const matchSearch = spell.index?.toLowerCase().includes(search.toLowerCase())
-
-      const matchSchool = school === "all" || spell.school?.index === school
-
-      const matchLevel = level === "all" || spell.level === Number(level)
-
-      return matchSearch && matchSchool && matchLevel
-    });
+    return filterSpells(spells, search, school, level);
   }, [spells, search, school, level]);
 
 
   return (
     <View style={styles.container}>
-      <View>
         <View>
       <Text>Page for Spells.</Text>
       <SearchComponent  
@@ -42,7 +34,6 @@ export default function SpellPage() {
       level={level} 
       setLevel={setLevel}
       />
-      </View>
       </View>
       <StatusBar style="auto" />
       <FlatList
