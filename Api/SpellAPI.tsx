@@ -1,12 +1,12 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { SpellListItem } from "../types/spell";
+import { SpellListItem, Spell } from "../types/spell";
 
 
 const BASE_URL = "https://www.dnd5eapi.co";
 const CACHE_KEY = "spells_cache";
 
 
-export async function GetAllSpells() {
+export async function GetAllSpells(): Promise<Spell[]> {
 
   try {
     // use to clear corrupted cache
@@ -47,7 +47,7 @@ export async function GetAllSpells() {
       })
   );
 
-  const validSpells = spells.filter(spell => spell !== null);
+  const validSpells = spells.filter((spell: Spell) => spell !== null);
 
   await AsyncStorage.setItem(CACHE_KEY, JSON.stringify(validSpells));
 
