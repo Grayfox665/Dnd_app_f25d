@@ -13,11 +13,11 @@ Spells- Här dyker det upp en lång lista av alla de magiformler som fanns från
 
 API som har använts : https://www.dnd5eapi.co/
 Dependencies bibliotek som har använts i denna projekt: 
-      -@react-native-async-storage/async-storage
-      -@react-navigation/native
-      -expo
-      -expo-linking
-      -expo-router
+      - @react-native-async-storage/async-storage
+      - @react-navigation/native
+      - expo
+      - expo-linking
+      - expo-router
       
 
 ## Fil struktur:
