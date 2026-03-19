@@ -1,11 +1,12 @@
 import { ConditionCardProps } from "../types/condition";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import { cardStyle } from "../Styles/Styling";
 
 export default function ConditionCard({ condition }: ConditionCardProps) {
 
 
   return (
-    <View style={styles.cardcontainer}>
+    <View style={cardStyle.cardcontainer}>
       <Text>{condition.name}</Text>
       <View>
         <Text>{condition.desc.join('\n\n')}</Text>
@@ -13,16 +14,3 @@ export default function ConditionCard({ condition }: ConditionCardProps) {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  cardcontainer: {
-    backgroundColor: "#fcdbc0",
-    height: "auto",
-    width: "90%",
-    borderColor: "#6b100d",
-    borderWidth: 1,
-    borderRadius: 8,
-    padding: 4,
-    marginBottom: 4,
-  }
-})

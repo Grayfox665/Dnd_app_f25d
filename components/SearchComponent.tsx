@@ -1,6 +1,7 @@
-import { StyleSheet, View, Text, TextInput } from "react-native"
+import { View, Text, TextInput } from "react-native"
 import DropdownList from "./DropDownList"
 import { SearchProps } from "../types/search"
+import { searchStyles } from "../Styles/Styling"
 
 
   const schoolOfMagiOptions = [
@@ -45,26 +46,10 @@ export default function SearchComponent({search, setSearch, school, setSchool, l
         onChangeText={setSearch}
         />
       </View>
-      <View style={styles.filterContainer}>
+      <View style={searchStyles.filterContainer}>
         <DropdownList options={schoolOfMagiOptions} selected={school} onSelect={setSchool} />
         <DropdownList options={spellLevelOptions} selected={level} onSelect={setLevel} />
       </View>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  searchContainer: {
-    backgroundColor: "#fcdbc0",
-    height: "auto",
-    width: "90%",
-    borderColor: "#6b100d",
-    borderWidth: 1,
-    borderRadius: 8,
-    padding: 4,
-    marginBottom: 4,
-  },
-  filterContainer: {
-    flexDirection: "row"
-  }
-})
