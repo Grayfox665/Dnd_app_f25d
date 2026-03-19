@@ -1,21 +1,16 @@
-import { ScrollView } from "react-native";
-import { useEffect, useState } from "react";
 import ConditionCard from "./ConditionCard";
-import { Condition } from "../types/condition";
 import { GetAllConditions } from "../Api/ConditionAPI";
+import DataList from "./DataList";
+
 
 export default function ConditionList() {
-  const [conditions, setConditions] = useState<Condition[]>([]);
 
-  useEffect(() => {
-    GetAllConditions().then(setConditions);
-  }, []);
+
+
 
   return (
-    <ScrollView>
-      {conditions.map((condition) => (
-        <ConditionCard key={condition.index} condition={condition} />
-      ))}
-    </ScrollView>
+    <DataList fetchData={GetAllConditions}
+    renderItem={({item}) => <ConditionCard condition={item} />}
+    />
   )
 }

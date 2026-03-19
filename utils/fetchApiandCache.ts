@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { IndexItem } from "../types/generalIndex";
+import { IndexItem } from "../types/general";
 
 const BASE_URL = "https://www.dnd5eapi.co";
 

@@ -1,10 +1,11 @@
-import { View, Text, StyleSheet} from "react-native"
+import { View, Text, StyleSheet, ActivityIndicator} from "react-native"
 
 export default function LoadingComponent() {
 
   return (
     <View>
       <Text style={styles.textStyle}> Loading... </Text>
+      <ActivityIndicator size="large" color="#6b100d" />
     </View>
   )
 }
