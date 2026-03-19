@@ -9,10 +9,12 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo-google-fonts/inknut-antiqua": "^0.4.1",
     "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-vector-icons/material-design-icons": "^12.4.3",
     "@react-navigation/native": "^7.1.33",
     "expo": "~55.0.5",
+    "expo-font": "~55.0.4",
     "expo-linking": "~55.0.7",
     "expo-router": "~55.0.4",
     "expo-status-bar": "~55.0.4",

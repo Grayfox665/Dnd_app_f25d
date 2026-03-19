@@ -1,8 +1,3 @@
-export interface SpellListItem {
-  index: string;
-  url: string;
-}
-
 export interface SpellCardProps {
   spell: Spell;
 }
@@ -45,8 +40,3 @@ export interface Spell {
     index: string;
   }
 }
-
-export type SpellContextType = {
-  savedSpell: Spell[];
-  saveSpell: (spell : Spell) => void;
-};

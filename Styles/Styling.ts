@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+
 export const pageStyle = StyleSheet.create({
   container: {
     flex: 1,
@@ -9,8 +10,15 @@ export const pageStyle = StyleSheet.create({
   pageTitle: {
     color: "#6b100d",
     fontSize: 32,
+    fontFamily: "InknutAntiqua_900Black",
     paddingBottom: 12,
     paddingTop:12, 
+  },
+  pageSecTitle: {
+    color: "#6b100d",
+    fontSize: 28,
+    fontFamily: "InknutAntiqua_400Regular",
+    textAlign: "center"
   }
 })
 
@@ -36,7 +44,8 @@ export const cardStyle = StyleSheet.create({
     fontStyle: "italic",
   },
   cardNameStyling: {
-    fontSize: 20,
+    fontSize: 18,
+    fontFamily: "InknutAntiqua_300Light",
     color: "#6b100d",
     paddingBottom: 4,
   }
