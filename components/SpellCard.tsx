@@ -3,6 +3,7 @@ import { Text, View, Pressable } from "react-native";
 import { useEffect, useState } from "react";
 import { getSpellBookmarks, toggleSpellBookmark} from "../utils/spellBookmarks";
 import { cardStyle } from "../Styles/Styling";
+import MaterialDesignIcons from "@react-native-vector-icons/material-design-icons";
 
 export default function SpellCard({ spell }: SpellCardProps) {
   const [bookmarkedSpell, setBookmarkedSpell] = useState<boolean>(false);
@@ -26,7 +27,9 @@ const handleSpellBookmark = async () => {
       <View>
         <Text style={cardStyle.cardNameStyling}>{spell.name}</Text>
         <Pressable onPress={handleSpellBookmark}>
-          <Text>{bookmarkedSpell ? "bookmarked" : "bookmark"}</Text>
+          <Text>{bookmarkedSpell ? 
+            <MaterialDesignIcons name="bookmark" color={"#6b100d"} size={24} /> : 
+            <MaterialDesignIcons name="bookmark-outline" color={"#6b100d"} size={24} />}</Text>
         </Pressable>
       </View>
       <View style={cardStyle.spellLevelContainer}>
