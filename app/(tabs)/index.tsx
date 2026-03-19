@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <View style={pageStyle.container}>
-      <Text>Home page for the DnD assistant app!</Text>
+      <Text style={pageStyle.pageTitle}>DnD assistant Homepage</Text>
       <StatusBar style="auto" />
       <BookmarkedSpellList />
     </View>

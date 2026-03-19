@@ -7,7 +7,7 @@ export default function ConditionCard({ condition }: ConditionCardProps) {
 
   return (
     <View style={cardStyle.cardcontainer}>
-      <Text>{condition.name}</Text>
+      <Text style={cardStyle.cardNameStyling}>{condition.name}</Text>
       <View>
         <Text>{condition.desc.join('\n\n')}</Text>
       </View>

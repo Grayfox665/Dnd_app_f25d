@@ -4,8 +4,8 @@ import MaterialDesignIcons from "@react-native-vector-icons/material-design-icon
 export default function TabLayout() {
   return (
     <Tabs 
-    screenOptions={{ tabBarActiveTintColor: "#6b100d", tabBarStyle: {
-      backgroundColor: "#ebd1b1"
+    screenOptions={{ tabBarActiveTintColor: "#6b100d", tabBarInactiveTintColor: '#fadfbe', tabBarStyle: {
+      backgroundColor: "#cfb089"
     }, headerShown : false }}>
       <Tabs.Screen name="index" options={{ title: "Home", tabBarIcon: ({ color }) =>  (
         <MaterialDesignIcons name="bookshelf" color={color} size={24} />

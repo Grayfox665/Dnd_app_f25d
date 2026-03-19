@@ -7,7 +7,7 @@ export default function ConditionPage() {
 
   return (
     <View style={pageStyle.container}>
-      <Text>Page for conditions.</Text>
+      <Text style={pageStyle.pageTitle}>Condition Page.</Text>
       <StatusBar style="auto" />
       <ConditionList />
     </View>

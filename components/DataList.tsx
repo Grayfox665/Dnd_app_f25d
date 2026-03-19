@@ -6,6 +6,7 @@ import { DataListProps } from "../types/general";
 import { ReactElement } from "react";
 import { useFilteredData } from "../hooks/useFilteredDataHook";
 import { useKeyExtractor } from "../hooks/useKeyExtractorHook";
+import { listStyle } from "../Styles/Styling";
 
 export default function DataList<T extends { index: string }>(
   props: DataListProps<T>
@@ -25,6 +26,7 @@ export default function DataList<T extends { index: string }>(
       data={filteredData}
       renderItem={renderItem}
       keyExtractor={extractor}
+      contentContainerStyle={listStyle.listContainer}
     />
   );
 }

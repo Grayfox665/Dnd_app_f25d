@@ -10,7 +10,7 @@ export default function SpellPage() {
   return (
     <View style={pageStyle.container}>
         <View>
-      <Text>Page for Spells.</Text> 
+      <Text style={pageStyle.pageTitle}>Spells Library.</Text> 
       <StatusBar style="auto" />
       </View>
       <SpellList />

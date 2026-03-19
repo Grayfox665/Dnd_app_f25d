@@ -35,9 +35,9 @@ export default function SearchComponent({search, setSearch, school, setSchool, l
 
 
   return (
-    <View>
+    <View style={searchStyles.container}>
       <View>
-        <Text>Component to  filter and search for info like rules and spells</Text>
+        <Text style={searchStyles.textStyle}>Search for spells via searchfield or category buttons.</Text>
       </View>
       <View>
         <TextInput 

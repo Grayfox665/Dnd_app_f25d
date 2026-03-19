@@ -5,7 +5,7 @@ import { cardStyle } from "../Styles/Styling";
 export default function RuleSectionCard({ rulesection }: RuleSectionCardProps) {
   return (
     <View style={cardStyle.cardcontainer}>
-      <Text>{rulesection.name}</Text>
+      <Text style={cardStyle.cardNameStyling}>{rulesection.name}</Text>
       <View>
         <Text>{rulesection.desc}</Text>
       </View>

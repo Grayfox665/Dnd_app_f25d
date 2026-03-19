@@ -8,7 +8,7 @@ export default function RulesPage() {
 
   return (
     <View style={pageStyle.container}>
-      <Text>Page for rules to appear.</Text>
+      <Text style={pageStyle.pageTitle}>Rule Page.</Text>
       <StatusBar style="auto" />
       <RuleSectionList />
     </View>

@@ -24,12 +24,12 @@ const handleSpellBookmark = async () => {
 
   return (
     <View style={cardStyle.cardcontainer}>
-      <View>
+      <View style={cardStyle.bookmarkAndNameContainer}>
         <Text style={cardStyle.cardNameStyling}>{spell.name}</Text>
         <Pressable onPress={handleSpellBookmark}>
           <Text>{bookmarkedSpell ? 
-            <MaterialDesignIcons name="bookmark" color={"#6b100d"} size={24} /> : 
-            <MaterialDesignIcons name="bookmark-outline" color={"#6b100d"} size={24} />}</Text>
+            <MaterialDesignIcons name="bookmark" color={"#6b100d"} size={30} /> : 
+            <MaterialDesignIcons name="bookmark-outline" color={"#6b100d"} size={30} />}</Text>
         </Pressable>
       </View>
       <View style={cardStyle.spellLevelContainer}>
