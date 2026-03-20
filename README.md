@@ -48,6 +48,7 @@ Dependencies bibliotek som har använts i denna projekt:
        - Spells.tsx
                               
 - components folder
+  - BookmarkButton.tsx
   - BookmarkedSpellList.tsx
   - ConditionCard.tsx
   - ConditionList.tsx
@@ -68,11 +69,13 @@ Dependencies bibliotek som har använts i denna projekt:
   - useFocusHook.ts
   - useKeyExtractorHook.ts
   - useLoadingHook.ts
+  - useSpellBookmark.ts
                
 - Styles folder
   - Styling.ts
 
 - types folder
+  - bookmark.ts
   - condition.ts
   - dropdown.ts
   - fontloader.ts
