@@ -1,36 +1,19 @@
 import { SpellCardProps } from "../types/spell";
-import { Text, View, Pressable } from "react-native";
-import { useEffect, useState } from "react";
-import { getSpellBookmarks, toggleSpellBookmark} from "../utils/spellBookmarks";
+import { Text, View } from "react-native";
 import { cardStyle } from "../Styles/Styling";
-import MaterialDesignIcons from "@react-native-vector-icons/material-design-icons";
+import { useSpellBookmark } from "../hooks/useSpellBookmark";
+import BoorkmarkButton from "./BookmarkButton";
 
 export default function SpellCard({ spell }: SpellCardProps) {
-  const [bookmarkedSpell, setBookmarkedSpell] = useState<boolean>(false);
+  const { bookmarkedSpell, handleSpellBookmark } = useSpellBookmark(spell.index)
 
-  useEffect(() => {
-    const load = async () => {
-    const spellBookmarks = await getSpellBookmarks();
-    setBookmarkedSpell(spellBookmarks.includes(spell.index));
-    }
-  load();
-}, [spell.index]);
-
-const handleSpellBookmark = async () => {
-  const newState = await toggleSpellBookmark(spell.index);
-  setBookmarkedSpell(newState);
-};
 
 
   return (
     <View style={cardStyle.cardcontainer}>
       <View style={cardStyle.bookmarkAndNameContainer}>
         <Text style={cardStyle.cardNameStyling}>{spell.name}</Text>
-        <Pressable onPress={handleSpellBookmark}>
-          <Text>{bookmarkedSpell ? 
-            <MaterialDesignIcons name="bookmark" color={"#6b100d"} size={30} /> : 
-            <MaterialDesignIcons name="bookmark-outline" color={"#6b100d"} size={30} />}</Text>
-        </Pressable>
+        <BoorkmarkButton bookmarked={bookmarkedSpell} onPress={handleSpellBookmark} />
       </View>
       <View style={cardStyle.spellLevelContainer}>
         <Text style={cardStyle.italicStyling}>{spell.school.name} 
