@@ -62,6 +62,9 @@ Dependencies bibliotek som har använts i denna projekt:
   - SearchComponent.tsx
   - SpellCard.tsx
   - SpellList.tsx
+ 
+- constants folder
+  - spellOptions.ts
                     
 - hooks folder
   - useBookmarkedFilterHook.ts
