@@ -13,12 +13,23 @@ Spells- Här dyker det upp en lång lista av alla de magiformler som fanns från
 
 API som har använts : https://www.dnd5eapi.co/
 Dependencies bibliotek som har använts i denna projekt: 
+
+      - @expo-google-fonts/inknut-antiqua
       - @react-native-async-storage/async-storage
+      - @react-native-vector-icons/material-design-icons
       - @react-navigation/native
       - expo
+      - expo-font
       - expo-linking
       - expo-router
-      
+      - expo-status-bar
+      - react
+      - react-dom
+      - react-native
+      - react-native-gesture-handler
+      - react-native-reanimated
+      - react-native-safe-area-context
+      - react-native-screens
 
 ## Fil struktur:
 
@@ -43,6 +54,7 @@ Dependencies bibliotek som har använts i denna projekt:
   - DataList.tsx
   - DropDownList.tsx
   - ErrorComponent.tsx
+  - FontLoader.tsx
   - loading.tsx
   - RuleList.tsx
   - RuleSectionCard.tsx
@@ -53,6 +65,7 @@ Dependencies bibliotek som har använts i denna projekt:
 - hooks folder
   - useBookmarkedFilterHook.ts
   - useFilteredDataHook.ts
+  - useFocusHook.ts
   - useKeyExtractorHook.ts
   - useLoadingHook.ts
                
@@ -62,6 +75,7 @@ Dependencies bibliotek som har använts i denna projekt:
 - types folder
   - condition.ts
   - dropdown.ts
+  - fontloader.ts
   - general.ts
   - rulesection.ts
   - search.ts
